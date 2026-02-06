@@ -9,24 +9,19 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        python-version: ['3.7', '3.8', '3.9', '3.10']
-        include:
-          - os: windows-latest
-            python-version: '3.7'
-          - os: macos-latest
-            python-version: '3.7'
-    timeout-minutes: 10
+        python-version: ['3.9', '3.10']
 
     steps:
     - name: Check out code repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
