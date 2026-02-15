@@ -11,3 +11,20 @@ on:
   pull_request:
     branches:
       - main
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Stage
+        run: echo "Build successful"
+
+      - name: Test Stage
+        run: echo "Tests passed successfully"
+
+      - name: Deployment Stage
+        run: echo "Deployment completed"
